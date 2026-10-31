@@ -20,7 +20,7 @@ const { caseStudies } = RESEARCH_DATA;
       {caseStudies.map((cs) => {
         const spanClass = cs.id === 'roadwatch' ? 'case-card-span-7' : cs.id === 'dygrav' ? 'case-card-span-5' : 'case-card-span-6';
         return (
-          <article class={`case-card ${spanClass}`} id={`case-${cs.id}`}>
+          <article class={`case-card ${spanClass} case-card-${cs.pillar}`} id={`case-${cs.id}`}>
             <div class="case-header-row">
               <span class="case-pillar-tag" style={`color: ${cs.pillar === 'perception' ? 'var(--accent-emerald)' : cs.pillar === 'reasoning' ? 'var(--accent-cobalt)' : 'var(--accent-amber)'};`}>
                 {cs.pillarLabel}

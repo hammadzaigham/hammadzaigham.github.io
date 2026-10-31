@@ -10,13 +10,28 @@ const { candidate } = RESEARCH_DATA;
       <div class="hero-main-content">
         <div class="hero-status-tag">
           <span class="hero-status-dot"></span>
-          <span>FALL 2027 PH.D. APPLICANT · EMBODIED AI & TRUSTWORTHY SYSTEMS</span>
+          <span>FALL 2027 PH.D. APPLICANT · EMBODIED AI &amp; TRUSTWORTHY SYSTEMS</span>
         </div>
 
         <h1 class="hero-headline">{candidate.name}</h1>
 
+        <div class="hero-domain-pills" aria-label="Core Research Domains">
+          <span class="domain-pill pill-perception">
+            <span class="pill-dot dot-perception"></span> Edge Perception
+          </span>
+          <span class="domain-pill pill-reasoning">
+            <span class="pill-dot dot-reasoning"></span> Embodied Reasoning
+          </span>
+          <span class="domain-pill pill-trustworthy">
+            <span class="pill-dot dot-trustworthy"></span> Verified Hardware
+          </span>
+          <span class="domain-pill pill-crypto">
+            <span class="pill-dot dot-crypto"></span> EV Cryptography
+          </span>
+        </div>
+
         <p class="hero-standfirst">
-          Undergraduate researcher at the <strong style="color: var(--text-main);">{candidate.institution}</strong>, investigating how physical-world AI agents perceive unstructured spaces, reason over relational graphs, and operate within verified hardware and security limits.
+          Undergraduate researcher at the <strong style="color: var(--text-main); font-weight: 600;">{candidate.institution}</strong>, investigating how physical-world AI agents perceive unstructured spaces, reason over relational graphs, and operate within verified hardware and security limits.
         </p>
 
         <p class="hero-narrative">
@@ -32,63 +47,91 @@ const { candidate } = RESEARCH_DATA;
             <span>The Research Atlas</span>
             <span aria-hidden="true">&rarr;</span>
           </a>
-          <a href="./cv.tex" download="hammad_ahmed_cv.tex" class="btn-academic btn-text" title="Download LaTeX Source File">
+          <a href="./cv.tex" download="hammad_ahmed_cv.tex" class="btn-academic btn-outline" title="Download LaTeX Source File">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
             <span>Download CV (cv.tex)</span>
           </a>
         </div>
       </div>
 
-      <!-- Right Metadata & Metric Panel -->
-      <aside class="hero-meta-panel" aria-label="Academic Credentials & Metrics">
+      <!-- Right Metadata & Metric Panel (The Research Dossier) -->
+      <aside class="hero-meta-panel" aria-label="Academic Credentials &amp; Metrics">
+        <div class="meta-panel-header">
+          <span class="dossier-tag">DOSSIER // VERIFIED RECORD</span>
+          <span class="dossier-status-pill">ACTIVE 2026</span>
+        </div>
+
+        <!-- Academic Affiliation -->
         <div class="meta-block">
           <div class="meta-block-title">Academic Affiliation</div>
           <div class="meta-block-content">
             <strong style="color: var(--text-main); font-weight: 600;">{candidate.institution}</strong>
-            <div style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.15rem;">
+            <div style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.2rem;">
               {candidate.degree}
             </div>
-            <div style="font-size: 0.84rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.15rem;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.2rem;">
               {candidate.expectedGraduation}
             </div>
           </div>
         </div>
 
+        <!-- GPA Feature Box -->
+        <div class="meta-gpa-banner">
+          <div class="gpa-number-wrap">
+            <span class="gpa-label">CUMULATIVE GPA</span>
+            <span class="gpa-score">4.00 <span class="gpa-max">/ 4.00</span></span>
+          </div>
+          <span class="gpa-badge">PRESIDENT'S LIST '24–'26</span>
+        </div>
+
+        <!-- Verified Research Metrics -->
         <div class="meta-block">
-          <div class="meta-block-title">Verified Academic Metrics</div>
+          <div class="meta-block-title">Verified Empirical Metrics</div>
           <div class="meta-stats-list">
             <div class="meta-stat-item">
-              <span class="meta-stat-label">Cumulative GPA</span>
-              <span class="meta-stat-val" style="color: var(--accent-cobalt);">4.00 / 4.00</span>
-            </div>
-            <div class="meta-stat-item">
-              <span class="meta-stat-label">President's List</span>
-              <span class="meta-stat-val">2024–2026</span>
-            </div>
-            <div class="meta-stat-item">
               <span class="meta-stat-label">DyGRAV VLN SPL</span>
-              <span class="meta-stat-val" style="color: var(--accent-emerald);">76.41% (+8.28)</span>
+              <span class="meta-stat-val val-emerald">76.41% (+8.28)</span>
             </div>
             <div class="meta-stat-item">
               <span class="meta-stat-label">R2R Success Rate</span>
               <span class="meta-stat-val">80.28%</span>
             </div>
             <div class="meta-stat-item">
-              <span class="meta-stat-label">PreySense Stars</span>
-              <span class="meta-stat-val">70+ GitHub</span>
+              <span class="meta-stat-label">Compute Compliance</span>
+              <span class="meta-stat-val">97.33% Budget</span>
             </div>
             <div class="meta-stat-item">
-              <span class="meta-stat-label">Road Detections</span>
+              <span class="meta-stat-label">PreySense Community</span>
+              <span class="meta-stat-val val-cobalt">70+ GitHub Stars</span>
+            </div>
+            <div class="meta-stat-item">
+              <span class="meta-stat-label">Road Detections Evaluated</span>
               <span class="meta-stat-val">19,784 Frames</span>
             </div>
           </div>
         </div>
 
-        <div class="meta-block">
+        <!-- Direct Inquiries & Scholarly Profiles -->
+        <div class="meta-block meta-block-contact">
           <div class="meta-block-title">Direct Inquiries</div>
-          <div class="meta-block-content" style="font-size: 0.88rem; font-family: var(--font-mono);">
-            <div><a href={`mailto:${candidate.email}`}>{candidate.email}</a></div>
-            <div style="margin-top: 0.25rem;"><a href={candidate.github} target="_blank" rel="noopener noreferrer">github.com/{candidate.githubHandle}</a></div>
-            <div style="margin-top: 0.25rem; color: var(--text-muted);">{candidate.phone}</div>
+          <div class="meta-contact-links">
+            <a href={`mailto:${candidate.email}`} class="contact-pill-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>{candidate.email}</span>
+            </a>
+            <a href={candidate.github} target="_blank" rel="noopener noreferrer" class="contact-pill-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              <span>github.com/{candidate.githubHandle}</span>
+            </a>
           </div>
         </div>
       </aside>

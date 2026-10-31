@@ -22,30 +22,91 @@ const { publications } = RESEARCH_DATA;
           <!-- Left: Research Figure Thumbnail -->
           <div class="pub-figure-wrap" aria-label={`Schematic illustration for ${pub.title}`}>
             {pub.id === 'dygrav-2026' ? (
-              <svg class="pub-figure-svg" viewBox="0 0 220 150" fill="none">
-                <rect width="220" height="150" fill="#F8FAFC" />
-                <path d="M 30 110 L 85 60 L 145 95 L 190 40" stroke="#3157B8" stroke-width="2.5" stroke-linecap="round" />
-                <circle cx="30" cy="110" r="5" fill="#3157B8" />
-                <circle cx="85" cy="60" r="5" fill="#3157B8" />
-                <circle cx="145" cy="95" r="5" fill="#3157B8" />
-                <circle cx="190" cy="40" r="7" fill="#0D825E" stroke="#FFFFFF" stroke-width="2" />
-                <polygon points="85,60 130,30 145,55" fill="rgba(217, 119, 6, 0.18)" stroke="#D97706" stroke-width="1" stroke-dasharray="2 2" />
-                <text x="110" y="140" fill="#64748B" font-family="IBM Plex Mono" font-size="8.5" text-anchor="middle">DyGRAV Relational Map</text>
+              <svg class="pub-figure-svg" viewBox="0 0 240 160" fill="none" role="img" aria-label="DyGRAV topological navigation graph with dynamic attention">
+                <rect width="240" height="160" fill="#F8FAFC" />
+                <!-- Subtle grid -->
+                <line x1="20" y1="40" x2="220" y2="40" stroke="#E2E8F0" stroke-width="0.75" stroke-dasharray="2 2" />
+                <line x1="20" y1="80" x2="220" y2="80" stroke="#E2E8F0" stroke-width="0.75" stroke-dasharray="2 2" />
+                <line x1="20" y1="120" x2="220" y2="120" stroke="#E2E8F0" stroke-width="0.75" stroke-dasharray="2 2" />
+                
+                <!-- Agent View Frustum Cone -->
+                <polygon points="36,110 95,45 135,70" fill="rgba(49, 87, 184, 0.08)" stroke="rgba(49, 87, 184, 0.25)" stroke-width="1" />
+                
+                <!-- Topological Navigation Edges -->
+                <path d="M 36 110 L 88 58 L 140 85 L 198 38" stroke="#3157B8" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M 88 58 L 130 32 L 198 38" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="3 3" />
+                <path d="M 36 110 L 90 125 L 140 85" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 2" />
+                
+                <!-- Dynamic Attention Rays -->
+                <line x1="88" y1="58" x2="140" y2="85" stroke="#D97706" stroke-width="1.5" stroke-dasharray="2 2" />
+                
+                <!-- Graph Nodes -->
+                <!-- Start / Agent Node -->
+                <circle cx="36" cy="110" r="7" fill="#3157B8" stroke="#FFFFFF" stroke-width="2" />
+                <text x="36" y="126" fill="#182334" font-family="IBM Plex Mono" font-size="8" text-anchor="middle" font-weight="600">v_0</text>
+                
+                <!-- Intermediate Nodes -->
+                <circle cx="88" cy="58" r="5" fill="#3157B8" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="88" y="48" fill="#566981" font-family="IBM Plex Mono" font-size="7.5" text-anchor="middle">v_1</text>
+                
+                <circle cx="140" cy="85" r="5.5" fill="#3157B8" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="140" y="100" fill="#566981" font-family="IBM Plex Mono" font-size="7.5" text-anchor="middle">v_2</text>
+                
+                <circle cx="130" cy="32" r="3.5" fill="#CBD5E1" />
+                <circle cx="90" cy="125" r="3.5" fill="#CBD5E1" />
+                
+                <!-- Goal Node with Success Beacon -->
+                <circle cx="198" cy="38" r="8" fill="#0D825E" stroke="#FFFFFF" stroke-width="2" />
+                <circle cx="198" cy="38" r="13" fill="none" stroke="#0D825E" stroke-width="1" stroke-dasharray="2 2" opacity="0.6" />
+                <text x="198" y="22" fill="#0D825E" font-family="IBM Plex Mono" font-size="8" text-anchor="middle" font-weight="700">v_goal</text>
+
+                <!-- Metric Badge -->
+                <rect x="14" y="10" width="112" height="17" rx="3" fill="#FFFFFF" stroke="#CBD5E1" />
+                <text x="20" y="22" fill="#3157B8" font-family="IBM Plex Mono" font-size="7.5" font-weight="600">SPL: 76.41% (+8.28)</text>
               </svg>
             ) : (
-              <svg class="pub-figure-svg" viewBox="0 0 220 150" fill="none">
-                <rect width="220" height="150" fill="#F8FAFC" />
-                <rect x="25" y="20" width="170" height="100" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
-                <line x1="25" y1="45" x2="195" y2="45" stroke="#E2E8F0" />
-                <line x1="25" y1="70" x2="195" y2="70" stroke="#E2E8F0" />
-                <line x1="25" y1="95" x2="195" y2="95" stroke="#E2E8F0" />
-                <line x1="68" y1="20" x2="68" y2="120" stroke="#E2E8F0" />
-                <line x1="110" y1="20" x2="110" y2="120" stroke="#E2E8F0" />
-                <line x1="152" y1="20" x2="152" y2="120" stroke="#E2E8F0" />
-                <rect x="72" y="48" width="34" height="18" rx="2" fill="rgba(49, 87, 184, 0.15)" stroke="#3157B8" stroke-width="0.75" />
-                <rect x="114" y="73" width="34" height="18" rx="2" fill="rgba(13, 130, 94, 0.15)" stroke="#0D825E" stroke-width="0.75" />
-                <rect x="156" y="98" width="34" height="18" rx="2" fill="rgba(180, 83, 9, 0.15)" stroke="#B45309" stroke-width="0.75" />
-                <text x="110" y="140" fill="#64748B" font-family="IBM Plex Mono" font-size="8.5" text-anchor="middle">4×4 Taxonomy Matrix</text>
+              <svg class="pub-figure-svg" viewBox="0 0 240 160" fill="none" role="img" aria-label="4x4 cross-layer authentication taxonomy for EV charging">
+                <rect width="240" height="160" fill="#F8FAFC" />
+                
+                <!-- Matrix Container -->
+                <rect x="20" y="18" width="200" height="120" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
+                
+                <!-- Header row -->
+                <rect x="20" y="18" width="200" height="24" rx="3" fill="#EEF2F6" />
+                <text x="75" y="34" fill="#475569" font-family="IBM Plex Mono" font-size="7" font-weight="600" text-anchor="middle">PHYS</text>
+                <text x="120" y="34" fill="#475569" font-family="IBM Plex Mono" font-size="7" font-weight="600" text-anchor="middle">NET</text>
+                <text x="165" y="34" fill="#475569" font-family="IBM Plex Mono" font-size="7" font-weight="600" text-anchor="middle">AUTH</text>
+                <text x="202" y="34" fill="#475569" font-family="IBM Plex Mono" font-size="7" font-weight="600" text-anchor="middle">TIME</text>
+
+                <!-- Matrix Dividers -->
+                <line x1="20" y1="42" x2="220" y2="42" stroke="#CBD5E1" stroke-width="1" />
+                <line x1="20" y1="66" x2="220" y2="66" stroke="#E2E8F0" />
+                <line x1="20" y1="90" x2="220" y2="90" stroke="#E2E8F0" />
+                <line x1="20" y1="114" x2="220" y2="114" stroke="#E2E8F0" />
+                
+                <line x1="52" y1="18" x2="52" y2="138" stroke="#CBD5E1" stroke-width="1" />
+                <line x1="98" y1="18" x2="98" y2="138" stroke="#E2E8F0" />
+                <line x1="142" y1="18" x2="142" y2="138" stroke="#E2E8F0" />
+                <line x1="188" y1="18" x2="188" y2="138" stroke="#E2E8F0" />
+
+                <!-- Row Labels -->
+                <text x="36" y="56" fill="#64748B" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">L1</text>
+                <text x="36" y="80" fill="#64748B" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">L2</text>
+                <text x="36" y="104" fill="#64748B" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">L3</text>
+                <text x="36" y="128" fill="#64748B" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">L4</text>
+
+                <!-- Colored Taxonomy Cells -->
+                <rect x="56" y="46" width="38" height="16" rx="2" fill="rgba(49, 87, 184, 0.14)" stroke="#3157B8" stroke-width="0.8" />
+                <text x="75" y="57" fill="#3157B8" font-family="IBM Plex Mono" font-size="6.5" font-weight="600" text-anchor="middle">DWC-PAD</text>
+
+                <rect x="102" y="70" width="36" height="16" rx="2" fill="rgba(13, 130, 94, 0.14)" stroke="#0D825E" stroke-width="0.8" />
+                <text x="120" y="81" fill="#0D825E" font-family="IBM Plex Mono" font-size="6.5" font-weight="600" text-anchor="middle">RSU V2I</text>
+
+                <rect x="146" y="94" width="38" height="16" rx="2" fill="rgba(180, 83, 9, 0.14)" stroke="#B45309" stroke-width="0.8" />
+                <text x="165" y="105" fill="#B45309" font-family="IBM Plex Mono" font-size="6.5" font-weight="600" text-anchor="middle">HMAC/ZKP</text>
+
+                <rect x="190" y="118" width="26" height="16" rx="2" fill="#EBF1FC" stroke="#3157B8" stroke-width="0.8" />
+                <text x="203" y="129" fill="#3157B8" font-family="IBM Plex Mono" font-size="6" font-weight="600" text-anchor="middle">&lt;15ms</text>
               </svg>
             )}
             <span class="pub-figure-caption">Fig: Verified Architecture</span>
