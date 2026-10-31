@@ -1,0 +1,81 @@
+---
+import { RESEARCH_DATA } from '../data/researchData';
+const { caseStudies } = RESEARCH_DATA;
+---
+
+<section class="case-studies-section" id="case-studies">
+  <div class="atlas-container">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span class="section-number">03 / EMPIRICAL SYSTEMS</span>
+        <span class="mono-tag">Flagship Research & Engineering Case Studies</span>
+      </div>
+      <h2 class="section-title serif-heading">Selected Technical Investigations</h2>
+      <p class="section-desc">
+        Deep dives into primary research pipelines, low-level firmware architectures, and real-world deployed systems. Each study couples empirical metrics with verifiable artifacts.
+      </p>
+    </div>
+
+    <div class="case-studies-grid">
+      {caseStudies.map((cs) => {
+        const spanClass = cs.id === 'roadwatch' ? 'case-card-span-7' : cs.id === 'dygrav' ? 'case-card-span-5' : 'case-card-span-6';
+        return (
+          <article class={`case-card ${spanClass}`} id={`case-${cs.id}`}>
+            <div class="case-header-row">
+              <span class="case-pillar-tag" style={`color: ${cs.pillar === 'perception' ? 'var(--accent-emerald)' : cs.pillar === 'reasoning' ? 'var(--accent-cobalt)' : 'var(--accent-amber)'};`}>
+                {cs.pillarLabel}
+              </span>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">
+                {cs.period}
+              </span>
+            </div>
+
+            <h3 class="case-title">{cs.title}</h3>
+            <div class="case-subtitle">{cs.subtitle} &bull; <strong style="color: var(--text-main);">{cs.role}</strong></div>
+
+            <p class="case-summary">{cs.summary}</p>
+
+            <!-- Verified Metrics Grid -->
+            <div class="case-metrics-grid">
+              {cs.verifiedMetrics.map((vm) => (
+                <div class="case-metric-item">
+                  <span class="case-metric-val">{vm.value}</span>
+                  <span class="case-metric-lbl">{vm.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- In-Depth Technical Bullet Points -->
+            <ul class="case-highlights-list">
+              {cs.technicalHighlights.map((th) => (
+                <li class="case-highlight-bullet">{th}</li>
+              ))}
+            </ul>
+
+            <!-- Artifact Links Row -->
+            <div class="case-actions">
+              {cs.liveUrl && (
+                <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn" style="background-color: var(--accent-cobalt-light); color: var(--accent-cobalt); border-color: rgba(49,87,184,0.3);">
+                  <span>Live AWS Deployment</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              )}
+              {cs.githubUrl && (
+                <a href={cs.githubUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">
+                  <span>GitHub Repository (70+ Stars)</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              )}
+              {cs.artifacts.filter(a => a.url && a.url !== cs.liveUrl && a.url !== cs.githubUrl).map((art) => (
+                <a href={art.url} target="_blank" rel="noopener noreferrer" class="action-link-btn">
+                  <span>{art.label}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              ))}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

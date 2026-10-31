@@ -1,0 +1,97 @@
+---
+import { RESEARCH_DATA } from '../data/researchData';
+const { candidate } = RESEARCH_DATA;
+---
+
+<section class="hero-section" id="identity">
+  <div class="atlas-container">
+    <div class="hero-layout">
+      <!-- Left Narrative Column -->
+      <div class="hero-main-content">
+        <div class="hero-status-tag">
+          <span class="hero-status-dot"></span>
+          <span>FALL 2027 PH.D. APPLICANT · EMBODIED AI & TRUSTWORTHY SYSTEMS</span>
+        </div>
+
+        <h1 class="hero-headline">{candidate.name}</h1>
+
+        <p class="hero-standfirst">
+          Undergraduate researcher at the <strong style="color: var(--text-main);">{candidate.institution}</strong>, investigating how physical-world AI agents perceive unstructured spaces, reason over relational graphs, and operate within verified hardware and security limits.
+        </p>
+
+        <p class="hero-narrative">
+          My work spans <strong>dynamic grounding for Vision-Language Navigation</strong> (DyGRAV, published in <em>Information 2026</em>), <strong>edge-efficient roadway hazard triage</strong> (RoadWatch, deployed on AWS EC2), <strong>vehicular charging security</strong> (4×4 authentication taxonomy in Springer LNNS), and <strong>firmware reverse engineering</strong> (PreySense, 70+ GitHub stars).
+        </p>
+
+        <div class="hero-actions-row">
+          <a href="#publications" class="btn-academic btn-primary">
+            <span>Explore Publications</span>
+            <span aria-hidden="true">&darr;</span>
+          </a>
+          <a href="#research-map" class="btn-academic btn-secondary">
+            <span>The Research Atlas</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="./cv.tex" download="hammad_ahmed_cv.tex" class="btn-academic btn-text" title="Download LaTeX Source File">
+            <span>Download CV (cv.tex)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Metadata & Metric Panel -->
+      <aside class="hero-meta-panel" aria-label="Academic Credentials & Metrics">
+        <div class="meta-block">
+          <div class="meta-block-title">Academic Affiliation</div>
+          <div class="meta-block-content">
+            <strong style="color: var(--text-main); font-weight: 600;">{candidate.institution}</strong>
+            <div style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.15rem;">
+              {candidate.degree}
+            </div>
+            <div style="font-size: 0.84rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.15rem;">
+              {candidate.expectedGraduation}
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-block">
+          <div class="meta-block-title">Verified Academic Metrics</div>
+          <div class="meta-stats-list">
+            <div class="meta-stat-item">
+              <span class="meta-stat-label">Cumulative GPA</span>
+              <span class="meta-stat-val" style="color: var(--accent-cobalt);">4.00 / 4.00</span>
+            </div>
+            <div class="meta-stat-item">
+              <span class="meta-stat-label">President's List</span>
+              <span class="meta-stat-val">2024–2026</span>
+            </div>
+            <div class="meta-stat-item">
+              <span class="meta-stat-label">DyGRAV VLN SPL</span>
+              <span class="meta-stat-val" style="color: var(--accent-emerald);">76.41% (+8.28)</span>
+            </div>
+            <div class="meta-stat-item">
+              <span class="meta-stat-label">R2R Success Rate</span>
+              <span class="meta-stat-val">80.28%</span>
+            </div>
+            <div class="meta-stat-item">
+              <span class="meta-stat-label">PreySense Stars</span>
+              <span class="meta-stat-val">70+ GitHub</span>
+            </div>
+            <div class="meta-stat-item">
+              <span class="meta-stat-label">Road Detections</span>
+              <span class="meta-stat-val">19,784 Frames</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-block">
+          <div class="meta-block-title">Direct Inquiries</div>
+          <div class="meta-block-content" style="font-size: 0.88rem; font-family: var(--font-mono);">
+            <div><a href={`mailto:${candidate.email}`}>{candidate.email}</a></div>
+            <div style="margin-top: 0.25rem;"><a href={candidate.github} target="_blank" rel="noopener noreferrer">github.com/{candidate.githubHandle}</a></div>
+            <div style="margin-top: 0.25rem; color: var(--text-muted);">{candidate.phone}</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

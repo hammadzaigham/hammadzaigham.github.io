@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import ResearchHero from '../components/ResearchHero.astro';
+import ResearchMap from '../components/ResearchMap.astro';
+import PublicationsList from '../components/PublicationsList.astro';
+import CaseStudies from '../components/CaseStudies.astro';
+import ResearchExperience from '../components/ResearchExperience.astro';
+import HonorsAwards from '../components/HonorsAwards.astro';
+import BibtexModal from '../components/BibtexModal.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <HeaderNav />
+  <main id="main-content">
+    <ResearchHero />
+    <hr class="editorial-rule atlas-container" />
+    <ResearchMap />
+    <hr class="editorial-rule atlas-container" />
+    <PublicationsList />
+    <hr class="editorial-rule atlas-container" />
+    <CaseStudies />
+    <hr class="editorial-rule atlas-container" />
+    <ResearchExperience />
+    <hr class="editorial-rule atlas-container" />
+    <HonorsAwards />
+  </main>
+  <BibtexModal />
+  <Footer />
+</Layout>

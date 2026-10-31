@@ -1,0 +1,47 @@
+---
+import { RESEARCH_DATA } from '../data/researchData';
+const { researchExperience } = RESEARCH_DATA;
+---
+
+<section class="experience-section" id="experience">
+  <div class="atlas-container">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span class="section-number">04 / RESEARCH APPOINTMENTS</span>
+        <span class="mono-tag">Academic Labs & Fellowships</span>
+      </div>
+      <h2 class="section-title serif-heading">Research & Professional Experience</h2>
+      <p class="section-desc">
+        Undergraduate laboratory appointments and competitive computing fellowships focused on Embodied AI and cyber-physical vehicular infrastructure.
+      </p>
+    </div>
+
+    <div class="exp-list">
+      {researchExperience.map((exp) => (
+        <article class="exp-entry">
+          <div class="exp-entry-header">
+            <h3 class="exp-org-name">{exp.organization}</h3>
+            <span class="exp-period-loc">{exp.period} &bull; {exp.location}</span>
+          </div>
+
+          <div class="exp-role-line">
+            {exp.role} {exp.advisor ? `· Advisor: ${exp.advisor}` : ''}
+          </div>
+
+          <div class="exp-topics-list">
+            {exp.topics.map((t) => (
+              <div class="exp-topic-block">
+                <h4 class="exp-topic-title">{t.title}</h4>
+                <ul class="exp-topic-bullets">
+                  {t.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,182 @@
+---
+---
+
+<section class="research-map-section" id="research-map">
+  <div class="atlas-container">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span class="section-number">01 / CONCEPTUAL ARCHITECTURE</span>
+        <span class="mono-tag">Interactive Research Atlas</span>
+      </div>
+      <h2 class="section-title serif-heading">The Research Atlas: Perception, Reasoning & Trust</h2>
+      <p class="section-desc">
+        A unified conceptual framework bridging real-time environmental perception, relational language grounding in embodied agents, and verified low-level systems execution. Click any domain below to inspect its research bridge.
+      </p>
+    </div>
+
+    <!-- The Signature SVG Scientific Diagram -->
+    <div class="atlas-map-wrapper">
+      <svg
+        class="map-svg-container"
+        viewBox="0 0 920 420"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Conceptual diagram connecting Perception, Reasoning, and Trustworthy Systems"
+      >
+        <defs>
+          <!-- Subtle Marker Arrows -->
+          <marker id="arrow-cobalt" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#3157B8" />
+          </marker>
+          <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#0D825E" />
+          </marker>
+          <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#B45309" />
+          </marker>
+
+          <!-- Subtle Background Gradients -->
+          <linearGradient id="nodeGradLight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="100%" stopColor="#F8FAFC" />
+          </linearGradient>
+        </defs>
+
+        <!-- Connecting Pathway Curves -->
+        <!-- Path 1: Perception to Reasoning (Spatial Grounding Bridge) -->
+        <path
+          d="M 280 110 C 370 70, 550 70, 640 110"
+          stroke="#3157B8"
+          stroke-width="1.75"
+          stroke-dasharray="5 4"
+          marker-end="url(#arrow-cobalt)"
+        />
+        <text x="460" y="74" fill="#3157B8" font-family="IBM Plex Mono" font-size="11" text-anchor="middle" font-weight="600">
+          SPATIAL GROUNDING: Dynamic Attention over Visual Primitives
+        </text>
+
+        <!-- Path 2: Reasoning to Trustworthy Systems (Constrained Execution Bridge) -->
+        <path
+          d="M 710 200 C 690 280, 570 310, 520 315"
+          stroke="#B45309"
+          stroke-width="1.75"
+          stroke-dasharray="5 4"
+          marker-end="url(#arrow-amber)"
+        />
+        <text x="690" y="275" fill="#B45309" font-family="IBM Plex Mono" font-size="10" text-anchor="start">
+          POLICY LIMITS &rarr; 97.3% Compute Bounds
+        </text>
+
+        <!-- Path 3: Trustworthy Systems to Perception (Physical Edge Verification) -->
+        <path
+          d="M 400 315 C 350 310, 230 280, 210 200"
+          stroke="#0D825E"
+          stroke-width="1.75"
+          stroke-dasharray="5 4"
+          marker-end="url(#arrow-emerald)"
+        />
+        <text x="230" y="275" fill="#0D825E" font-family="IBM Plex Mono" font-size="10" text-anchor="end">
+          EDGE TRIAGE &larr; Sub-ms Sensor Bounds
+        </text>
+
+        <!-- Central Equilibrium Core Circle -->
+        <circle cx="460" cy="210" r="32" fill="none" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3 3" />
+        <circle cx="460" cy="210" r="4" fill="#3157B8" />
+        <text x="460" y="202" fill="#566981" font-family="IBM Plex Mono" font-size="9" text-anchor="middle" font-weight="500">
+          ATLAS
+        </text>
+        <text x="460" y="224" fill="#566981" font-family="IBM Plex Mono" font-size="8.5" text-anchor="middle">
+          CONVERGENCE
+        </text>
+
+        <!-- ================= PILLAR 1: PERCEPTION ================= -->
+        <g class="map-pillar-card" id="pillar-perception" transform="translate(60, 60)">
+          <!-- Card Base -->
+          <rect x="0" y="0" width="220" height="135" rx="6" class="card-bg" stroke="#0D825E" stroke-width="1.5" />
+          <line x1="0" y1="34" x2="220" y2="34" class="card-line" stroke-width="1" />
+          <circle cx="16" cy="18" r="4" fill="#0D825E" />
+          <text x="28" y="22" fill="#0D825E" font-family="IBM Plex Mono" font-size="11" font-weight="600">01. PERCEPTION</text>
+
+          <text x="16" y="58" class="card-title" font-family="Newsreader" font-size="15" font-weight="600">Roadway Vision & Geometry</text>
+          <text x="16" y="78" class="card-body" font-family="IBM Plex Sans" font-size="11">YOLOv8s + SegFormer-B0 ONNX</text>
+          <text x="16" y="96" class="card-body" font-family="IBM Plex Sans" font-size="11">3-Way Gating (Accept/Review/Reject)</text>
+
+          <rect x="16" y="108" width="188" height="18" rx="3" class="card-chip" />
+          <text x="22" y="121" fill="#0D825E" font-family="IBM Plex Mono" font-size="9" font-weight="600">
+            ROADWATCH · 19.7k FRAMES EVAL
+          </text>
+        </g>
+
+        <!-- ================= PILLAR 2: REASONING ================= -->
+        <g class="map-pillar-card" id="pillar-reasoning" transform="translate(640, 60)">
+          <!-- Card Base -->
+          <rect x="0" y="0" width="220" height="135" rx="6" class="card-bg" stroke="#3157B8" stroke-width="1.5" />
+          <line x1="0" y1="34" x2="220" y2="34" class="card-line" stroke-width="1" />
+          <circle cx="16" cy="18" r="4" fill="#3157B8" />
+          <text x="28" y="22" fill="#3157B8" font-family="IBM Plex Mono" font-size="11" font-weight="600">02. REASONING</text>
+
+          <text x="16" y="58" class="card-title" font-family="Newsreader" font-size="15" font-weight="600">Embodied AI & Grounding</text>
+          <text x="16" y="78" class="card-body" font-family="IBM Plex Sans" font-size="11">Topological Navigation Graphs</text>
+          <text x="16" y="96" class="card-body" font-family="IBM Plex Sans" font-size="11">R2R Benchmark (+8.28% SPL)</text>
+
+          <rect x="16" y="108" width="188" height="18" rx="3" class="card-chip" />
+          <text x="22" y="121" fill="#3157B8" font-family="IBM Plex Mono" font-size="9" font-weight="600">
+            DyGRAV · MDPI INFORMATION '26
+          </text>
+        </g>
+
+        <!-- ================= PILLAR 3: TRUSTWORTHY SYSTEMS ================= -->
+        <g class="map-pillar-card" id="pillar-trustworthy" transform="translate(350, 260)">
+          <!-- Card Base -->
+          <rect x="0" y="0" width="220" height="135" rx="6" class="card-bg" stroke="#B45309" stroke-width="1.5" />
+          <line x1="0" y1="34" x2="220" y2="34" class="card-line" stroke-width="1" />
+          <circle cx="16" cy="18" r="4" fill="#B45309" />
+          <text x="28" y="22" fill="#B45309" font-family="IBM Plex Mono" font-size="11" font-weight="600">03. TRUSTED SYSTEMS</text>
+
+          <text x="16" y="58" class="card-title" font-family="Newsreader" font-size="15" font-weight="600">Firmware & Cryptography</text>
+          <text x="16" y="78" class="card-body" font-family="IBM Plex Sans" font-size="11">ACPI / SSDT Hardware Bounds</text>
+          <text x="16" y="96" class="card-body" font-family="IBM Plex Sans" font-size="11">4×4 EV Charging Security Taxonomy</text>
+
+          <rect x="16" y="108" width="188" height="18" rx="3" class="card-chip" />
+          <text x="22" y="121" fill="#B45309" font-family="IBM Plex Mono" font-size="9" font-weight="600">
+            PREYSENSE & DWC-FASTAUTH
+          </text>
+        </g>
+      </svg>
+
+      <!-- Interactive Commentary Grid Below the Map -->
+      <div class="map-interactive-legend" id="map-legend">
+        <div class="legend-col" data-pillar="perception">
+          <div class="legend-title">
+            <span class="legend-pillar-dot dot-perception"></span>
+            <span>Perception: Edge Spatial Geometry</span>
+          </div>
+          <p class="legend-desc">
+            Focuses on robust environmental feature extraction under resource constraints. <strong>RoadWatch</strong> couples YOLOv8s bounding boxes with SegFormer road masks to filter 162 off-road false detections across 19,784 dashcam frames.
+          </p>
+        </div>
+
+        <div class="legend-col" data-pillar="reasoning">
+          <div class="legend-title">
+            <span class="legend-pillar-dot dot-reasoning"></span>
+            <span>Reasoning: Relational Embodied AI</span>
+          </div>
+          <p class="legend-desc">
+            Investigates how agents translate high-level natural language instructions into physical action sequences. <strong>DyGRAV</strong> achieves 80.28% SR and 76.41% SPL on Room-to-Room unseen environments with 97.33% compute compliance.
+          </p>
+        </div>
+
+        <div class="legend-col" data-pillar="trustworthy">
+          <div class="legend-title">
+            <span class="legend-pillar-dot dot-trustworthy"></span>
+            <span>Trustworthy Systems: Hardware & Crypto</span>
+          </div>
+          <p class="legend-desc">
+            Enforces strict physical and cryptographic guarantees. <strong>DWC-FastAuth</strong> categorizes 53 EV charging protocols in Springer LNNS, while <strong>PreySense</strong> controls ACPI/EC firmware thermal limits with 70+ GitHub stars.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

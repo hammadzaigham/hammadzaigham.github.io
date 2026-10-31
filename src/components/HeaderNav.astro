@@ -1,0 +1,66 @@
+---
+---
+
+<header class="site-nav" id="top-nav">
+  <div class="atlas-container nav-inner">
+    <a href="#" class="nav-brand" aria-label="Hammad Ahmed Research Atlas Home">
+      <span class="brand-monogram">H</span>
+      <div>
+        <span class="brand-title">Hammad Ahmed</span>
+        <span class="brand-role">Research Atlas</span>
+      </div>
+    </a>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-links">
+        <li><a href="#research-map" class="nav-link">Atlas Map</a></li>
+        <li><a href="#publications" class="nav-link">Publications</a></li>
+        <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#honors" class="nav-link">Honors</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="./cv.tex" download="hammad_ahmed_cv.tex" class="btn-academic btn-secondary" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;" title="Download raw LaTeX CV">
+        <span style="font-family: var(--font-mono);">cv.tex</span>
+      </a>
+
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme (light/dark)">
+        <span id="theme-icon" aria-hidden="true">☾</span>
+        <span id="theme-label">Dark</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const themeIcon = document.getElementById('theme-icon');
+  const themeLabel = document.getElementById('theme-label');
+
+  function updateThemeUI(theme) {
+    if (themeIcon && themeLabel) {
+      if (theme === 'dark') {
+        themeIcon.textContent = '☀';
+        themeLabel.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '☾';
+        themeLabel.textContent = 'Dark';
+      }
+    }
+  }
+
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  updateThemeUI(currentTheme);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const active = document.documentElement.getAttribute('data-theme') || 'light';
+      const nextTheme = active === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('atlas-theme', nextTheme);
+      updateThemeUI(nextTheme);
+    });
+  }
+</script>

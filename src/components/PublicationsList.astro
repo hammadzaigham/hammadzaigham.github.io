@@ -1,0 +1,136 @@
+---
+import { RESEARCH_DATA } from '../data/researchData';
+const { publications } = RESEARCH_DATA;
+---
+
+<section class="publications-section" id="publications">
+  <div class="atlas-container">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span class="section-number">02 / SCHOLARLY OUTPUT</span>
+        <span class="mono-tag">Peer-Reviewed Papers & Proceedings</span>
+      </div>
+      <h2 class="section-title serif-heading">Publications & Preprints</h2>
+      <p class="section-desc">
+        Bibliographic entries organized in the scholarly tradition of Jon Barron, highlighting exact authorship, empirical validation metrics, and open scientific access.
+      </p>
+    </div>
+
+    <div class="pub-list">
+      {publications.map((pub) => (
+        <article class="pub-item-card" id={`pub-${pub.id}`}>
+          <!-- Left: Research Figure Thumbnail -->
+          <div class="pub-figure-wrap" aria-label={`Schematic illustration for ${pub.title}`}>
+            {pub.id === 'dygrav-2026' ? (
+              <svg class="pub-figure-svg" viewBox="0 0 220 150" fill="none">
+                <rect width="220" height="150" fill="#F8FAFC" />
+                <path d="M 30 110 L 85 60 L 145 95 L 190 40" stroke="#3157B8" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="30" cy="110" r="5" fill="#3157B8" />
+                <circle cx="85" cy="60" r="5" fill="#3157B8" />
+                <circle cx="145" cy="95" r="5" fill="#3157B8" />
+                <circle cx="190" cy="40" r="7" fill="#0D825E" stroke="#FFFFFF" stroke-width="2" />
+                <polygon points="85,60 130,30 145,55" fill="rgba(217, 119, 6, 0.18)" stroke="#D97706" stroke-width="1" stroke-dasharray="2 2" />
+                <text x="110" y="140" fill="#64748B" font-family="IBM Plex Mono" font-size="8.5" text-anchor="middle">DyGRAV Relational Map</text>
+              </svg>
+            ) : (
+              <svg class="pub-figure-svg" viewBox="0 0 220 150" fill="none">
+                <rect width="220" height="150" fill="#F8FAFC" />
+                <rect x="25" y="20" width="170" height="100" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
+                <line x1="25" y1="45" x2="195" y2="45" stroke="#E2E8F0" />
+                <line x1="25" y1="70" x2="195" y2="70" stroke="#E2E8F0" />
+                <line x1="25" y1="95" x2="195" y2="95" stroke="#E2E8F0" />
+                <line x1="68" y1="20" x2="68" y2="120" stroke="#E2E8F0" />
+                <line x1="110" y1="20" x2="110" y2="120" stroke="#E2E8F0" />
+                <line x1="152" y1="20" x2="152" y2="120" stroke="#E2E8F0" />
+                <rect x="72" y="48" width="34" height="18" rx="2" fill="rgba(49, 87, 184, 0.15)" stroke="#3157B8" stroke-width="0.75" />
+                <rect x="114" y="73" width="34" height="18" rx="2" fill="rgba(13, 130, 94, 0.15)" stroke="#0D825E" stroke-width="0.75" />
+                <rect x="156" y="98" width="34" height="18" rx="2" fill="rgba(180, 83, 9, 0.15)" stroke="#B45309" stroke-width="0.75" />
+                <text x="110" y="140" fill="#64748B" font-family="IBM Plex Mono" font-size="8.5" text-anchor="middle">4×4 Taxonomy Matrix</text>
+              </svg>
+            )}
+            <span class="pub-figure-caption">Fig: Verified Architecture</span>
+          </div>
+
+          <!-- Right: Scholarly Content -->
+          <div class="pub-text-wrap">
+            <div class="pub-meta-top">
+              <span class={`pub-status-badge ${pub.status === 'published' ? 'pub-status-published' : ''}`}>
+                {pub.statusBadge}
+              </span>
+              <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">
+                {pub.year}
+              </span>
+              {pub.doi && (
+                <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-cobalt);">
+                  DOI: {pub.doi}
+                </span>
+              )}
+            </div>
+
+            <h3 class="pub-title">
+              {pub.doiUrl ? (
+                <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer">
+                  {pub.title}
+                </a>
+              ) : (
+                pub.title
+              )}
+            </h3>
+
+            <!-- Authors list with candidate highlighted -->
+            <div class="pub-authors">
+              {pub.authors.map((author, aIdx) => (
+                <span>
+                  {author.isCandidate ? (
+                    <strong class="author-candidate">{author.name}</strong>
+                  ) : (
+                    <span>{author.name}</span>
+                  )}
+                  {aIdx < pub.authors.length - 1 ? ", " : "."}
+                </span>
+              ))}
+            </div>
+
+            <div class="pub-venue-line">
+              {pub.venue}
+            </div>
+
+            <p class="pub-abstract">
+              {pub.summary}
+            </p>
+
+            <!-- Metrics Chips -->
+            <div class="pub-metrics-row">
+              {pub.metrics.map((m) => (
+                <span class="metric-chip">
+                  {m.label}: <strong>{m.value}</strong>
+                </span>
+              ))}
+            </div>
+
+            <!-- Action Bar -->
+            <div class="pub-actions-row">
+              {pub.doiUrl && (
+                <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">
+                  <span>View Paper (MDPI)</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              )}
+              <button
+                type="button"
+                class="action-link-btn open-bibtex-btn"
+                data-pub-id={pub.id}
+                aria-label={`Open BibTeX for ${pub.title}`}
+              >
+                <span>BibTeX</span>
+              </button>
+              <a href={`#case-${pub.id === 'dygrav-2026' ? 'dygrav' : 'dwc-fastauth'}`} class="action-link-btn">
+                <span>Inspect Case Study &darr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
