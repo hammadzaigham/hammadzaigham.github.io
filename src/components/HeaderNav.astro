@@ -3,7 +3,7 @@
 
 <header class="site-nav" id="top-nav">
   <div class="atlas-container nav-inner">
-    <a href="#" class="nav-brand" aria-label="Hammad Ahmed Research Atlas Home">
+    <a href="#identity" class="nav-brand" aria-label="Hammad Ahmed Research Atlas Home">
       <span class="brand-monogram">H</span>
       <div>
         <span class="brand-title">Hammad Ahmed</span>
@@ -25,42 +25,8 @@
       <a href="./cv.tex" download="hammad_ahmed_cv.tex" class="btn-academic btn-secondary" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;" title="Download raw LaTeX CV">
         <span style="font-family: var(--font-mono);">cv.tex</span>
       </a>
-
-      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme (light/dark)">
-        <span id="theme-icon" aria-hidden="true">☾</span>
-        <span id="theme-label">Dark</span>
-      </button>
     </div>
   </div>
 </header>
 
-<script is:inline>
-  const toggleBtn = document.getElementById('theme-toggle-btn');
-  const themeIcon = document.getElementById('theme-icon');
-  const themeLabel = document.getElementById('theme-label');
 
-  function updateThemeUI(theme) {
-    if (themeIcon && themeLabel) {
-      if (theme === 'dark') {
-        themeIcon.textContent = '☀';
-        themeLabel.textContent = 'Light';
-      } else {
-        themeIcon.textContent = '☾';
-        themeLabel.textContent = 'Dark';
-      }
-    }
-  }
-
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-  updateThemeUI(currentTheme);
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const active = document.documentElement.getAttribute('data-theme') || 'light';
-      const nextTheme = active === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', nextTheme);
-      localStorage.setItem('atlas-theme', nextTheme);
-      updateThemeUI(nextTheme);
-    });
-  }
-</script>

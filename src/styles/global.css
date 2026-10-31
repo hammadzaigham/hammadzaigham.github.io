@@ -54,34 +54,7 @@
   --shadow-hover: 0 2px 6px rgba(24, 35, 52, 0.06), 0 12px 30px rgba(24, 35, 52, 0.08);
 }
 
-/* Optional Restrained Dark Mode */
-[data-theme="dark"] {
-  --bg-page: #0D131F;
-  --bg-surface: #141C2B;
-  --bg-surface-elevated: #1B2436;
-  --bg-subtle: #182233;
-  --bg-active: #222E44;
 
-  --text-main: #F1F5F9;
-  --text-body: #CBD5E1;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  --text-inverse: #0D131F;
-
-  --border-light: #222E42;
-  --border-medium: #33435C;
-  --border-dark: #475B7A;
-  --border-rule: #FFFFFF;
-
-  --accent-cobalt: #5279E4;
-  --accent-cobalt-light: rgba(82, 121, 228, 0.14);
-  --accent-cobalt-hover: #7094F2;
-  --accent-emerald: #10B981;
-  --accent-amber: #F59E0B;
-
-  --shadow-editorial: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.55);
-}
 
 /* Base Reset & Document Styles */
 *, *::before, *::after {
@@ -169,7 +142,7 @@ a:hover {
 .editorial-rule {
   border: none;
   border-top: 1px solid var(--border-light);
-  margin: 4.5rem 0;
+  margin: 3rem 0;
   width: 100%;
 }
 
@@ -194,9 +167,7 @@ a:hover {
   transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
-[data-theme="dark"] .site-nav {
-  background-color: rgba(13, 19, 31, 0.92);
-}
+
 
 .nav-inner {
   display: flex;
@@ -274,32 +245,13 @@ a:hover {
   gap: 0.8rem;
 }
 
-.theme-toggle-btn {
-  background: transparent;
-  border: 1px solid var(--border-light);
-  color: var(--text-secondary);
-  padding: 0.4rem 0.65rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: all var(--transition-fast);
-}
-
-.theme-toggle-btn:hover {
-  border-color: var(--border-medium);
-  color: var(--text-main);
-  background-color: var(--bg-surface);
-}
+/* Theme toggle removed — light-mode only site */
 
 /* =====================================================================
    HERO: RESEARCH IDENTITY & VISION
    ===================================================================== */
 .hero-section {
-  padding: 5rem 0 3.5rem;
+  padding: 4rem 0 2.5rem;
 }
 
 .hero-layout {
@@ -473,7 +425,7 @@ a:hover {
    SIGNATURE RESEARCH MAP (THE ATLAS)
    ===================================================================== */
 .research-map-section {
-  padding: 2rem 0 4rem;
+  padding: 1.5rem 0 3rem;
 }
 
 .section-eyebrow {
@@ -553,25 +505,7 @@ a:hover {
   fill: #EEF2F6;
 }
 
-[data-theme="dark"] .card-bg {
-  fill: #182233;
-}
 
-[data-theme="dark"] .card-line {
-  stroke: #2A3952;
-}
-
-[data-theme="dark"] .card-title {
-  fill: #F1F5F9;
-}
-
-[data-theme="dark"] .card-body {
-  fill: #94A3B8;
-}
-
-[data-theme="dark"] .card-chip {
-  fill: #222E42;
-}
 
 .map-interactive-legend {
   display: grid;
@@ -625,7 +559,7 @@ a:hover {
    PUBLICATIONS: JON BARRON SCHOLARLY STYLE
    ===================================================================== */
 .publications-section {
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .pub-list {
@@ -800,7 +734,7 @@ a:hover {
    FEATURED CASE STUDIES (BENTO MODULES)
    ===================================================================== */
 .case-studies-section {
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .case-studies-grid {
@@ -943,7 +877,7 @@ a:hover {
    EXPERIENCE & HONORS
    ===================================================================== */
 .experience-section, .honors-section {
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .exp-list {

@@ -13,7 +13,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,16 +31,7 @@ const {
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%233157B8'/><text x='50' y='68' font-family='Georgia, serif' font-size='56' font-weight='bold' fill='white' text-anchor='middle'>H</text></svg>" />
 
-    <!-- Prevent Dark Mode FOUC -->
-    <script is:inline>
-      const savedTheme = localStorage.getItem('atlas-theme');
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // Respect system preference if not set
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    </script>
+
   </head>
   <body>
     <slot />
