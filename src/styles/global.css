@@ -480,7 +480,7 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
 }
 .diagram-heading { font-weight:500; fill:var(--text-main); }
 @media (prefers-reduced-motion:no-preference) {
-  .journal-visible { animation:journal-enter 550ms ease-out both; }
+  .journal-visible { animation:journal-enter 750ms ease-out both; }
   @keyframes journal-enter { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
   .journal-visible .navigation-route { stroke-dasharray:1; animation:route-draw 1.3s ease-out both; }
   @keyframes route-draw { from { stroke-dashoffset:1; } to { stroke-dashoffset:0; } }
@@ -538,3 +538,6 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
   .cv-entry-heading { margin-top:10px; }
   .cv-entry-role { margin-top:2px; }
 }
+
+.cv-balanced-line { display:flex; justify-content:space-between; align-items:baseline; gap:8px 24px; flex-wrap:wrap; }
+.cv-balanced-line > span:last-child { margin-left:auto; text-align:right; }

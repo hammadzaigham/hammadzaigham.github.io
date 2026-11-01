@@ -86,7 +86,8 @@ export function renderCV(source: string): string {
       case 'subentry': html += '<div class="cv-entry-heading"><h3>' + inline(group()) + '</h3><span>' + inline(group()) + '</span></div>'; break;
       case 'researchtopic': html += '<p class="cv-topic">' + inline(group()) + '</p>'; break;
       case 'par': html += '<br />'; break;
-      case 'quad': case 'hfill': html += ' &nbsp; '; break;
+      case 'quad': html += ' &nbsp; '; break;
+      case 'hfill': html += '<span class="cv-hfill" aria-hidden="true"></span>'; break;
       case 'vert': html += '|'; break;
       case 'times': html += '×'; break;
       case 'LaTeX': html += 'LaTeX'; break;
@@ -106,7 +107,12 @@ function formatDocument(html: string): string {
   const blocks = new Set(['header', 'div', 'p', 'ul', 'ol', 'li', 'h1', 'h2', 'h3']);
   const flushProse = () => {
     for (const paragraph of prose.split(/(?:\s*<br\s*\/>\s*)+/)) {
-      if (paragraph.trim()) result += '<p class="cv-paragraph">' + paragraph.trim() + '</p>';
+      if (paragraph.trim()) {
+        const parts = paragraph.split('<span class="cv-hfill" aria-hidden="true"></span>');
+        result += parts.length > 1
+          ? '<p class="cv-paragraph cv-balanced-line">' + parts.map(part => '<span>' + part.trim() + '</span>').join('') + '</p>'
+          : '<p class="cv-paragraph">' + paragraph.trim() + '</p>';
+      }
     }
     prose = '';
   };
