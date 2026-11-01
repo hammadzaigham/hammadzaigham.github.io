@@ -24,3 +24,16 @@ import Footer from '../components/Footer.astro';
   <BibtexModal />
   <Footer />
 </Layout>
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('journal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.hero-main-content, .research-notes, .pub-item-card, .case-card, .exp-entry, .honor-item-box').forEach(element => observer.observe(element));
+  }
+</script>
