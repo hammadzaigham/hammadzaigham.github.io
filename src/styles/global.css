@@ -541,3 +541,6 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
 
 .cv-balanced-line { display:flex; justify-content:space-between; align-items:baseline; gap:8px 24px; flex-wrap:wrap; }
 .cv-balanced-line > span:last-child { margin-left:auto; text-align:right; }
+.cv-contact > span { display:inline-flex; align-items:baseline; }
+.cv-contact > span + span::before { content:'|'; color:#555; margin-right:16px; }
+@media(max-width:600px) { .cv-contact > span + span::before { margin-right:10px; } }
