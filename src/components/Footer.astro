@@ -1,8 +1,9 @@
 ---
+import Chevron from './Chevron.astro';
 import { RESEARCH_DATA } from '../data/researchData';
 const { candidate } = RESEARCH_DATA;
 ---
 <footer class="site-footer" id="contact"><div class="atlas-container">
-  <div class="footer-main"><div><h2>Contact</h2><p>Research collaborations, questions about my work,<br class="desktop-break" /> and Fall 2027 Ph.D. opportunities.</p></div><div class="footer-contact"><a class="footer-email" href={'mailto:' + candidate.email}>{candidate.email}</a><div><a href={candidate.github} target="_blank" rel="noopener noreferrer">GitHub </a><a href={import.meta.env.BASE_URL + 'cv/'}>Curriculum vitae </a></div><span>{candidate.location}</span></div></div>
+  <div class="footer-main"><div><h2>Contact</h2><p>Research collaborations, questions about my work,<br class="desktop-break" /> and Fall 2027 Ph.D. opportunities.</p></div><div class="footer-contact"><a class="footer-email" href={'mailto:' + candidate.email}>{candidate.email}<Chevron /></a><div><a href={candidate.github} target="_blank" rel="noopener noreferrer">GitHub </a><a href={import.meta.env.BASE_URL + 'cv/'}>Curriculum vitae </a></div><span>{candidate.location}</span></div></div>
   <div class="footer-colophon"><span>© {new Date().getFullYear()} {candidate.name}</span><span>Research Atlas / Built with Astro</span><a href="#top-nav">Back to top </a></div>
 </div></footer>

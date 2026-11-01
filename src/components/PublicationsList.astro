@@ -1,4 +1,5 @@
 ---
+import Chevron from './Chevron.astro';
 import { RESEARCH_DATA } from '../data/researchData';
 import ResearchFigure from './ResearchFigure.astro';
 const { publications } = RESEARCH_DATA;
@@ -14,9 +15,9 @@ const { publications } = RESEARCH_DATA;
       <p class="pub-abstract">{pub.summary}</p>
       <p class="pub-result">{pub.id === 'dygrav-2026' ? 'R2R val_unseen: 80.28% success rate · 76.41% SPL' : 'A two-step 4 × 4 taxonomy of 53 EV charging studies.'}</p>
       <div class="pub-actions-row">
-        {pub.doiUrl && <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">Read paper </a>}
+        {pub.doiUrl && <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">Read paper <Chevron /></a>}
         <button type="button" class="action-link-btn open-bibtex-btn" data-pub-id={pub.id} data-title={pub.title} data-bibtex={pub.bibtex} aria-label={'Open BibTeX for ' + pub.title} aria-haspopup="dialog">Cite / BibTeX</button>
-        <a href={pub.id === 'dygrav-2026' ? '#case-dygrav' : '#case-dwc-fastauth'} class="action-link-btn">{pub.id === 'dygrav-2026' ? 'My contribution' : 'Related ongoing research'} </a>
+        <a href={pub.id === 'dygrav-2026' ? '#case-dygrav' : '#case-dwc-fastauth'} class="action-link-btn">{pub.id === 'dygrav-2026' ? 'My contribution' : 'Related ongoing research'} <Chevron /></a>
       </div>
     </div>
   </article>)}</div>

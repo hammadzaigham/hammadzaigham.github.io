@@ -1,4 +1,5 @@
 ---
+import Chevron from './Chevron.astro';
 import { RESEARCH_DATA } from '../data/researchData';
 import RoadWatchFigure from './RoadWatchFigure.astro';
 const { caseStudies } = RESEARCH_DATA;
@@ -13,10 +14,10 @@ const { caseStudies } = RESEARCH_DATA;
     <dl class="case-metrics-grid">{cs.verifiedMetrics.slice(0,3).map(metric => <div class="case-metric-item"><dt>{metric.label}</dt><dd>{metric.value}</dd></div>)}</dl>
     <details class="project-details"><summary>Methods &amp; contributions <span aria-hidden="true">+</span></summary><ul class="case-highlights-list">{cs.technicalHighlights.map(highlight => <li>{highlight}</li>)}</ul></details>
     <div class="case-actions">
-      {cs.liveUrl && <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">Open RoadWatch </a>}
-      {cs.githubUrl && <a href={cs.githubUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">Source on GitHub </a>}
-      {cs.artifacts.filter(artifact => artifact.url && artifact.url !== cs.liveUrl && artifact.url !== cs.githubUrl).map(artifact => <a href={artifact.url} target="_blank" rel="noopener noreferrer" class="action-link-btn">Read paper </a>)}
-      {cs.id === 'dwc-fastauth' && <a href="#pub-ev-auth-2026" class="action-link-btn">Related accepted survey </a>}
+      {cs.liveUrl && <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">Open RoadWatch <Chevron /></a>}
+      {cs.githubUrl && <a href={cs.githubUrl} target="_blank" rel="noopener noreferrer" class="action-link-btn">Source on GitHub <Chevron /></a>}
+      {cs.artifacts.filter(artifact => artifact.url && artifact.url !== cs.liveUrl && artifact.url !== cs.githubUrl).map(artifact => <a href={artifact.url} target="_blank" rel="noopener noreferrer" class="action-link-btn">Read paper <Chevron /></a>)}
+      {cs.id === 'dwc-fastauth' && <a href="#pub-ev-auth-2026" class="action-link-btn">Related accepted survey <Chevron /></a>}
     </div>
   </article>)}</div>
 </div></section>

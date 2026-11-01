@@ -467,3 +467,5 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
   .case-card:not(:first-child) .project-number { display:none; }
   .case-card:not(:first-child) .case-header-row { justify-content:flex-end; }
 }
+.link-chevron { display:inline-block; width:14px; height:14px; flex:0 0 14px; vertical-align:middle; }
+.btn-academic,.nav-cv { gap:12px; }
