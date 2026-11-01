@@ -509,3 +509,32 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
   .journal-visible .taxonomy-cell { animation:taxonomy-reveal 380ms ease-out both; animation-delay:calc(150ms + var(--cell-index)*55ms); }
   @keyframes taxonomy-reveal { from { opacity:0; } to { opacity:1; } }
 }
+/* CV document rhythm: explicit paragraphs, compact role rows, aligned dates. */
+.cv-heading { margin-bottom:27px; }
+.cv-contact { margin-top:10px; column-gap:20px; row-gap:5px; font-size:12px; line-height:1.6; }
+.cv-page > h2 { margin:25px 0 11px; padding-bottom:5px; }
+.cv-entry-heading { margin-top:15px; gap:8px 20px; line-height:1.45; }
+.cv-entry-heading h3 { flex:1; min-width:0; }
+.cv-entry-heading > span { line-height:1.6; }
+.cv-entry-role { margin-top:3px; margin-bottom:7px; }
+.cv-entry-role > span:first-child { flex:1; text-align:left; flex-shrink:1; font-size:13px; }
+.cv-paragraph { margin:6px 0; line-height:1.6; }
+.cv-topic { margin:13px 0 5px; line-height:1.5; }
+.cv-page ul,.cv-page ol { margin:6px 0 12px; padding-left:21px; }
+.cv-page li { margin-top:5px; line-height:1.55; }
+.cv-page > h2 + .cv-entry-heading { margin-top:0; }
+.cv-page > .cv-entry-heading + .cv-paragraph { margin-top:5px; }
+.cv-page > .cv-paragraph > em:only-child { display:block; margin-bottom:2px; font-size:13px; }
+@media(max-width:600px) {
+  .cv-contact { column-gap:12px; row-gap:6px; }
+  .cv-entry-heading { align-items:start; flex-direction:column; gap:3px; }
+  .cv-entry-heading > span { text-align:left; color:#555; }
+  .cv-entry-role { gap:2px; margin-top:3px; }
+  .cv-page > h2 { margin-top:23px; }
+}
+@media print {
+  .cv-page > h2 { margin-top:16px; }
+  .cv-paragraph { margin-block:4px; }
+  .cv-entry-heading { margin-top:10px; }
+  .cv-entry-role { margin-top:2px; }
+}

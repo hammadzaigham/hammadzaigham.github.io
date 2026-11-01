@@ -96,5 +96,37 @@ export function renderCV(source: string): string {
     }
   }
   if (listStack.length) throw new Error('Unclosed list in CV.tex');
-  return html.replace(/---/g, '—').replace(/--/g, '–').replace(/``/g, '“').replace(/&#39;&#39;/g, '”');
+  html = html.replace(/---/g, '—').replace(/--/g, '–').replace(/``/g, '“').replace(/&#39;&#39;/g, '”');
+  return /\\cvsection\b/.test(input) ? formatDocument(html) : html;
+}
+
+/** Give TeX prose real paragraphs rather than anonymous blocks and stray breaks. */
+function formatDocument(html: string): string {
+  let result = '', prose = '', block = '', depth = 0;
+  const blocks = new Set(['header', 'div', 'p', 'ul', 'ol', 'li', 'h1', 'h2', 'h3']);
+  const flushProse = () => {
+    for (const paragraph of prose.split(/(?:\s*<br\s*\/>\s*)+/)) {
+      if (paragraph.trim()) result += '<p class="cv-paragraph">' + paragraph.trim() + '</p>';
+    }
+    prose = '';
+  };
+  for (const token of html.match(/<[^>]+>|[^<]+/g) ?? []) {
+    const tag = token.match(/^<(\/?)([a-z0-9]+)/i);
+    const structural = tag && blocks.has(tag[2]);
+    if (structural && !tag[1]) {
+      if (depth === 0) flushProse();
+      depth++;
+    }
+    if (depth > 0) block += token;
+    else prose += token;
+    if (structural && tag[1]) {
+      depth--;
+      if (depth === 0) { result += block; block = ''; }
+    }
+  }
+  flushProse();
+  return result.replace(/(<header class="cv-heading">[\s\S]*?<br\s*\/>)([\s\S]*?)(<\/header>)/, (_, heading: string, contact: string, end: string) => {
+    const items = contact.split('|').map(item => item.replace(/&nbsp;/g, ' ').trim()).filter(Boolean);
+    return heading.replace(/<br\s*\/>$/, '') + '<div class="cv-contact">' + items.map(item => '<span>' + item + '</span>').join('') + '</div>' + end;
+  });
 }

@@ -41,6 +41,16 @@ test('preserves escaped percent signs and removes TeX comments', () => {
   assert.doesNotMatch(html, /hidden/);
 });
 
+test('formats prose as paragraphs and separates contact items without spacer breaks', () => {
+  const html = renderCV(source);
+  assert.match(html, /<div class="cv-contact"><span>/);
+  assert.match(html, /<p class="cv-paragraph"><strong>Relevant Coursework:/);
+  assert.match(html, /<p class="cv-paragraph">Completed mentored/);
+  assert.doesNotMatch(html, /<\/div>\s*<br\s*\/>/);
+  assert.doesNotMatch(html, /<\/p>\s*<br\s*\/>/);
+  assert.doesNotMatch(html, /<p class="cv-paragraph">\s*<\/p>/);
+});
+
 test('publication authorship and status match the CV record', () => {
   for (const publication of RESEARCH_DATA.publications) {
     for (const author of publication.authors) assert.ok(source.includes(author.name), author.name);
