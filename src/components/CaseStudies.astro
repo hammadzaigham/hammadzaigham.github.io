@@ -5,7 +5,7 @@ import RoadWatchFigure from './RoadWatchFigure.astro';
 const { caseStudies } = RESEARCH_DATA;
 ---
 <section class="case-studies-section" id="case-studies" aria-labelledby="projects-title"><div class="atlas-container">
-  <div class="section-header"><h2 class="section-title" id="projects-title">Selected projects</h2><p class="section-desc">From experiments and evaluation to the systems that make them useful.</p></div>
+  <div class="section-header"><h2 class="section-title" id="projects-title">Projects</h2><p class="section-desc">From experiments and evaluation to the systems that make them useful.</p></div>
   <div class="case-studies-grid">{caseStudies.map((cs, index) => <article class={'case-card case-card-' + cs.pillar} id={'case-' + cs.id}>
     <div class="case-header-row"><span class="project-number">{index === 0 ? 'Featured investigation' : cs.id === 'dwc-fastauth' ? 'Ongoing research' : cs.role}</span><span class="project-period">{cs.period}</span></div>
     <h3 class="case-title">{cs.title}</h3><p class="case-subtitle">{cs.role} · {cs.id === 'roadwatch' ? 'Mississippi AI Innovation Hub' : cs.id === 'preysense' ? 'Independent / open source' : 'SPEN Lab, USM'}</p>
