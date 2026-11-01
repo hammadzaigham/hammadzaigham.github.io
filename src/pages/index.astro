@@ -25,6 +25,8 @@ import Footer from '../components/Footer.astro';
   <Footer />
 </Layout>
 <script>
+  import { enhanceProjectDetails } from '../lib/motion';
+  enhanceProjectDetails();
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -34,6 +36,6 @@ import Footer from '../components/Footer.astro';
         }
       });
     }, { threshold: 0.08 });
-    document.querySelectorAll('.hero-main-content, .research-notes, .pub-item-card, .case-card, .exp-entry, .honor-item-box').forEach(element => observer.observe(element));
+    document.querySelectorAll('.hero-main-content, .research-notes, .pub-item-card, .case-card, .exp-entry, .honor-item-box, .roadwatch-figure, .typewriter-line').forEach(element => observer.observe(element));
   }
 </script>

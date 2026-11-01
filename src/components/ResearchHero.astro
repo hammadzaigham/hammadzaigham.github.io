@@ -8,7 +8,7 @@ const { candidate } = RESEARCH_DATA;
     <div class="hero-main-content">
       <p class="eyebrow">Computer science · University of Southern Mississippi</p>
       <h1 class="hero-headline" id="identity-title">Hammad Ahmed<span class="name-period">.</span></h1>
-      <p class="hero-research-line">Perception, reasoning &amp;<br /><em>trustworthy systems.</em></p>
+      <p class="hero-research-line">Perception, reasoning &amp;<br /><em class="typewriter-line"><span class="sr-only">trustworthy systems.</span><span class="typewriter-visual" aria-hidden="true">{Array.from('trustworthy systems.').map((character, index) => <span class="typewriter-character" style={`--character-index:${index}`}>{character}</span>)}</span></em></p>
       <p class="hero-standfirst">I study how AI agents understand the physical world and act reliably within it. My work spans vision–language navigation, roadway perception, and secure infrastructure.</p>
       <p class="hero-narrative">Undergraduate researcher in <strong>SPEN Lab</strong>, advised by <strong>Dr. Ahmed Sherif</strong>.</p>
       <div class="hero-actions-row"><a href="#publications" class="btn-academic btn-primary">Publications<Chevron /></a><a href={import.meta.env.BASE_URL + 'cv/'} class="btn-academic btn-secondary">Curriculum vitae<Chevron /></a></div>
