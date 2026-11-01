@@ -2,13 +2,15 @@
 import Chevron from './Chevron.astro';
 import { RESEARCH_DATA } from '../data/researchData';
 const { candidate } = RESEARCH_DATA;
+const firstLine = Array.from('Perception, reasoning &');
+const secondLine = Array.from('trustworthy systems.');
 ---
 <section class="hero-section" id="identity" aria-labelledby="identity-title">
   <div class="atlas-container hero-layout">
     <div class="hero-main-content">
       <p class="eyebrow">Computer science · University of Southern Mississippi</p>
       <h1 class="hero-headline" id="identity-title">Hammad Ahmed<span class="name-period">.</span></h1>
-      <p class="hero-research-line">Perception, reasoning &amp;<br /><em class="typewriter-line"><span class="sr-only">trustworthy systems.</span><span class="typewriter-visual" aria-hidden="true">{Array.from('trustworthy systems.').map((character, index) => <span class="typewriter-character" style={`--character-index:${index}`}>{character}</span>)}</span></em></p>
+      <p class="hero-research-line typewriter-line"><span class="sr-only">Perception, reasoning &amp; trustworthy systems.</span><span class="typewriter-visual" aria-hidden="true">{firstLine.map((character, index) => <span class="typewriter-character" style={`--character-index:${index}`}>{character}</span>)}<br /><em>{secondLine.map((character, index) => <span class:list={['typewriter-character', { 'typewriter-last': index === secondLine.length - 1 }]} style={`--character-index:${firstLine.length + index}`}>{character}</span>)}</em></span></p>
       <p class="hero-standfirst">I study how AI agents understand the physical world and act reliably within it. My work spans vision–language navigation, roadway perception, and secure infrastructure.</p>
       <p class="hero-narrative">Undergraduate researcher in <strong>SPEN Lab</strong>, advised by <strong>Dr. Ahmed Sherif</strong>.</p>
       <div class="hero-actions-row"><a href="#publications" class="btn-academic btn-primary">Publications<Chevron /></a><a href={import.meta.env.BASE_URL + 'cv/'} class="btn-academic btn-secondary">Curriculum vitae<Chevron /></a></div>
