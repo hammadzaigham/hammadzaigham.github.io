@@ -478,7 +478,7 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
   .portrait-block { padding-bottom:22px; margin-bottom:22px; }
   .portrait-block .author-portrait { width:144px; height:164px; }
 }
-.diagram-heading { font-weight:500; fill:var(--text-main); }
+.diagram-heading { font-weight:400; fill:var(--text-main); }
 @media (prefers-reduced-motion:no-preference) {
   .journal-visible { animation:journal-enter 750ms ease-out both; }
   @keyframes journal-enter { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
