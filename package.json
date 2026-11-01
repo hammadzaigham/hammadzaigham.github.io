@@ -3,16 +3,23 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --test tests/*.test.ts",
+    "test:build": "node --test tests/build.test.mjs"
   },
   "dependencies": {
     "astro": "^7.4.4"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@types/node": "^24.19.2",
-    "typescript": "~7.0.2"
+    "typescript": "^6.0.3"
   }
 }

@@ -1,32 +1,26 @@
 ---
+const base = import.meta.env.BASE_URL;
+const isCV = Astro.url.pathname.replace(/\/$/, '').endsWith('/cv');
+const links = [['publications', 'Publications'], ['case-studies', 'Projects'], ['experience', 'Experience'], ['honors', 'Honors']];
 ---
-
 <header class="site-nav" id="top-nav">
   <div class="atlas-container nav-inner">
-    <a href="#identity" class="nav-brand" aria-label="Hammad Ahmed Research Atlas Home">
-      <span class="brand-monogram">H</span>
-      <div>
-        <span class="brand-title">Hammad Ahmed</span>
-        <span class="brand-role">Research Atlas</span>
-      </div>
-    </a>
-
-    <nav aria-label="Main Navigation">
-      <ul class="nav-links">
-        <li><a href="#research-map" class="nav-link">Atlas Map</a></li>
-        <li><a href="#publications" class="nav-link">Publications</a></li>
-        <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#honors" class="nav-link">Honors</a></li>
-      </ul>
-    </nav>
-
-    <div class="nav-actions">
-      <a href="./cv.tex" download="hammad_ahmed_cv.tex" class="btn-academic btn-secondary" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;" title="Download raw LaTeX CV">
-        <span style="font-family: var(--font-mono);">cv.tex</span>
-      </a>
-    </div>
+    <a href={base + '#identity'} class="nav-brand" aria-label="Hammad Ahmed home"><span class="brand-monogram" aria-hidden="true">ha.</span><span class="brand-title">Hammad Ahmed<span class="brand-role">Research Atlas</span></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu <span aria-hidden="true">☰</span></button>
+    <nav id="main-navigation" aria-label="Main navigation"><ul class="nav-links">{links.map(([id, label]) => <li><a href={base + '#' + id} class="nav-link">{label}</a></li>)}</ul></nav>
+    <a href={base + 'cv/'} class="nav-cv" aria-label="Curriculum vitae" aria-current={isCV ? 'page' : undefined}><span class="label-wide">Curriculum vitae</span><span class="label-short" aria-hidden="true">CV</span></a>
   </div>
 </header>
-
-
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.getElementById('main-navigation');
+  function closeMenu() { button?.setAttribute('aria-expanded', 'false'); }
+  button?.addEventListener('click', () => button.setAttribute('aria-expanded', String(button.getAttribute('aria-expanded') !== 'true')));
+  nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && button?.getAttribute('aria-expanded') === 'true') { closeMenu(); button.focus(); } });
+  document.addEventListener('click', event => { if (event.target instanceof Node && !document.getElementById('top-nav')?.contains(event.target)) closeMenu(); });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) nav?.querySelectorAll('a').forEach(link => { if (link.hash === '#' + entry.target.id) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); }); });
+  }, { rootMargin: '-15% 0px -60% 0px' });
+  document.querySelectorAll('main > section[id]').forEach(section => observer.observe(section));
+</script>

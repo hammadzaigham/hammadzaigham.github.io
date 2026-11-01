@@ -2,80 +2,9 @@
 import { RESEARCH_DATA } from '../data/researchData';
 const { honors, leadership, skillsTaxonomy } = RESEARCH_DATA;
 ---
-
-<section class="honors-section" id="honors">
-  <div class="atlas-container">
-    <div class="section-header">
-      <div class="section-eyebrow">
-        <span class="section-number">05 / HONORS & SERVICE</span>
-        <span class="mono-tag">Competitions & Student Governance</span>
-      </div>
-      <h2 class="section-title serif-heading">Recognition & Institutional Leadership</h2>
-      <p class="section-desc">
-        Competitive national awards in AI multi-agent planning and space grant research, alongside university student leadership appointments.
-      </p>
-    </div>
-
-    <!-- Awards Grid -->
-    <div class="honors-grid">
-      {honors.map((h) => (
-        <article class="honor-item-box">
-          <span class="honor-year">{h.year} &bull; {h.issuer}</span>
-          <h3 class="honor-title">
-            {h.link ? (
-              <a href={h.link} target="_blank" rel="noopener noreferrer">
-                {h.title}
-              </a>
-            ) : (
-              h.title
-            )}
-          </h3>
-          <p class="honor-desc">{h.description}</p>
-        </article>
-      ))}
-    </div>
-
-    <!-- Student Advisory & Leadership Box -->
-    <div style="margin-top: 2.5rem; background-color: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.8rem;">
-      <div class="section-eyebrow" style="margin-bottom: 0.5rem;">
-        <span class="mono-tag">CAMPUS GOVERNANCE & MENTORSHIP</span>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
-        {leadership.map((lead) => (
-          <div>
-            <div style="font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--text-main);">
-              {lead.role}
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cobalt); margin-bottom: 0.35rem;">
-              {lead.organization} &bull; {lead.period}
-            </div>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;">
-              {lead.desc}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Verified Technical Skills Taxonomy -->
-    <div style="margin-top: 2.5rem; background-color: var(--bg-surface-elevated); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.8rem;">
-      <div class="section-eyebrow" style="margin-bottom: 0.8rem;">
-        <span class="mono-tag">TECHNICAL COMPETENCY TAXONOMY</span>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
-        {skillsTaxonomy.map((tax) => (
-          <div>
-            <div style="font-family: var(--font-sans); font-size: 0.94rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">
-              {tax.domain}
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
-              {tax.skills.map((s) => (
-                <span class="metric-chip" style="font-size: 0.76rem;">{s}</span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+<section class="honors-section" id="honors" aria-labelledby="honors-title"><div class="atlas-container">
+  <div class="section-header"><h2 class="section-title" id="honors-title">Honors &amp; service</h2></div>
+  <div class="honors-grid">{honors.map(honor => <article class="honor-item-box"><p class="honor-year">{honor.year}</p><h3 class="honor-title">{honor.link ? <a href={honor.link} target="_blank" rel="noopener noreferrer">{honor.title} </a> : honor.title}</h3><p class="honor-issuer">{honor.issuer}</p><p class="honor-desc">{honor.description}</p></article>)}</div>
+  <div class="service-layout"><h3 class="subsection-title">Leadership &amp; service</h3><div class="leadership-list">{leadership.map(item => <article><h4>{item.role}</h4><p>{item.organization}</p><span class="project-period">{item.period}</span></article>)}</div></div>
+  <div class="skills-layout"><h3 class="subsection-title">Technical toolkit</h3><div class="skills-list">{skillsTaxonomy.map(category => <div><h4>{category.domain}</h4><p>{category.skills.join(' · ')}</p></div>)}</div></div>
+</div></section>

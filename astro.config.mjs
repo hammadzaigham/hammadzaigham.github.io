@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://hammadzaigham.github.io',
-  base: '/',
+  site: process.env.SITE_URL || 'https://hammadzaigham.github.io',
+  base: process.env.BASE_PATH || '/',
+  trailingSlash: 'always',
+  devToolbar: { enabled: false },
 });

@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import cvSource from '../../CV.tex?raw';
+import { renderCV } from '../lib/render-cv';
+const html = renderCV(cvSource).replace(/(<header class="cv-heading">\s*)<strong>([^<]+)<\/strong>/, '$1<h1>$2</h1>');
+---
+<Layout title="Hammad Ahmed — Curriculum vitae" description="Hammad Ahmed’s academic CV: education, publications, research, projects, experience, and awards.">
+  <HeaderNav />
+  <main id="main-content">
+    <div class="cv-toolbar"><a href={import.meta.env.BASE_URL}> Back to research</a><span>Curriculum vitae</span></div>
+    <article class="cv-page" aria-label="Curriculum vitae" set:html={html} />
+  </main>
+</Layout>

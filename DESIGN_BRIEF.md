@@ -44,7 +44,7 @@
    - Candidate name: **Hammad Ahmed**
    - Current standing: Undergraduate Computer Science Researcher & Systems Engineer at USM (GPA: 4.00/4.00, President's List).
    - Research vision statement: Connecting perception, relational reasoning, and trustworthy systems.
-   - Immediate access to: CV PDF, LaTeX Source, Email, GitHub, Google Scholar / DOI links.
+   - Immediate access to: rendered CV, Email, GitHub, and DOI links. Do not expose raw LaTeX downloads, print/export buttons, or unverified scholarly profiles.
 
 2. **The Signature Research Map (The Atlas Visual):**
    - A meaningful, interactive SVG technical diagram connecting:
@@ -57,15 +57,15 @@
    - High-density bibliographic entries with research thumbnails / figures.
    - Authorship with `Hammad Ahmed` prominently highlighted in bold cobalt.
    - Direct links: [Paper DOI], [BibTeX (1-click drawer)], [Preprint/Code].
-   - Verified publications:
+   - Publications recorded in the source CV (retain exact authorship and status):
      1. *DyGRAV: Dynamic Grounding and Relational Reasoning for Vision–Language Navigation* (*Information*, 17(10), 1030, 2026).
-     2. *Novel Classification of Authentication Schemes in Electric Vehicle Charging* (ISBCom 2026 / Springer LNNS).
+     2. *Novel Classification of Authentication Schemes in Electric Vehicle Charging* (accepted at ISBCom 2026; Springer LNNS proceedings forthcoming).
 
 4. **Featured Research & Engineering Case Studies (Bento Composition):**
    - **RoadWatch:** Mississippi AI Innovation Hub &mdash; 3-way accept/review/reject gating, 19,784 dashcam frames evaluated, 162 off-road false alarms filtered, live AWS EC2 deployment (`https://3-141-198-95.sslip.io/`).
    - **DyGRAV:** 80.28% SR, 76.41% SPL on R2R val_unseen, 97.33% compute-budget compliance.
-   - **PreySense:** Acer firmware reverse engineering, ACPI/SSDT disassembly, direct EC registers, 70+ GitHub stars.
-   - **DWC-FastAuth (EV Charging):** RSU-assisted dynamic wireless charging authentication protocol, 4×4 taxonomy of 53 studies.
+   - **PreySense:** Acer firmware reverse engineering, ACPI/SSDT disassembly, embedded-controller interfaces. Prefer technical contributions over changing star-count badges.
+   - **DWC-FastAuth (EV Charging):** ongoing RSU-assisted dynamic wireless charging authentication protocol research. Distinguish this from the related accepted survey (4×4 taxonomy of 53 studies); do not present protocol targets as measured results.
 
 5. **Research Appointments & Lab Affiliations:**
    - SPEN Lab (Advisor: Dr. Ahmed Sherif) &mdash; Undergraduate Research Assistant.
@@ -77,8 +77,10 @@
    - NASA&ndash;Mississippi Space Grant IDCC &mdash; 2nd Place 2026.
    - USM Full-Tuition Academic Excellence Scholarship.
 
-7. **Downloadable CV & LaTeX Source:**
-   - Download links for both compiled PDF and raw [`cv.tex`](cv.tex).
+7. **Rendered Curriculum vitae:**
+   - Render the repository's `CV.tex` into readable HTML at `/cv/`. Keep the source as a build input and remove public `.tex` downloads and print/export controls.
+   - Avoid publication-status badges and decorative tags; communicate status plainly alongside the venue.
+   - Research thumbnails must be clearly labeled conceptual schematics unless they are actual figures from the paper. Do not label illustrations as verified architectures.
 
 ---
 
@@ -88,3 +90,7 @@
 - **Styling:** Custom Vanilla CSS (12-column Swiss grid, CSS custom properties, zero runtime framework overhead)
 - **Deployment:** GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
 - **Accessibility:** WCAG 2.2 AA compliant, full keyboard navigation, `prefers-reduced-motion` support.
+
+## Approved refinement: research journal
+
+The current composition uses a compact introduction with research interests and education in a quiet sidebar, followed immediately by publications. Selected projects feature RoadWatch with a clearly labeled conceptual pipeline, followed by quieter supporting entries. Use direct section headings and readable venue, authorship, and description text. Preserve the serif/cobalt identity, text links without arrows, and the dedicated A4-width Curriculum vitae without download or print/export controls. Prefer verified research figures or project screenshots when available; never substitute invented experimental evidence.

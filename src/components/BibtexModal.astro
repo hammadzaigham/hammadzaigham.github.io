@@ -1,92 +1,30 @@
----
-import { RESEARCH_DATA } from '../data/researchData';
-const { publications } = RESEARCH_DATA;
----
-
-<div id="bibtex-modal-backdrop" class="bibtex-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="bibtex-modal-card" id="bibtex-modal-card">
-    <div class="modal-header-row">
-      <h3 class="modal-header-title serif-heading" id="modal-title">BibTeX Citation</h3>
-      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close BibTeX dialog">&times;</button>
-    </div>
-
-    <div class="modal-body-content">
-      <p id="modal-paper-name" style="font-weight: 600; color: var(--text-main); font-size: 0.95rem; margin-bottom: 0.8rem;"></p>
-      <div class="bibtex-pre-container">
-        <pre class="bibtex-pre-text" id="modal-bibtex-code"></pre>
-      </div>
-    </div>
-
-    <div class="modal-footer-row">
-      <button type="button" class="btn-academic btn-secondary" id="modal-dismiss-btn">Dismiss</button>
-      <button type="button" class="btn-academic btn-primary" id="modal-copy-btn">
-        <span id="copy-btn-label">Copy BibTeX</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<script is:inline define:vars={{ publications }}>
-  const backdrop = document.getElementById('bibtex-modal-backdrop');
-  const closeBtn = document.getElementById('modal-close-btn');
-  const dismissBtn = document.getElementById('modal-dismiss-btn');
-  const copyBtn = document.getElementById('modal-copy-btn');
-  const copyBtnLabel = document.getElementById('copy-btn-label');
-  const paperNameElem = document.getElementById('modal-paper-name');
-  const bibtexCodeElem = document.getElementById('modal-bibtex-code');
-
-  let currentBibtex = '';
-
-  function openModal(pubId) {
-    const pub = publications.find((p) => p.id === pubId);
-    if (!pub) return;
-
-    currentBibtex = pub.bibtex;
-    if (paperNameElem) paperNameElem.textContent = pub.title;
-    if (bibtexCodeElem) bibtexCodeElem.textContent = pub.bibtex;
-    if (copyBtnLabel) copyBtnLabel.textContent = 'Copy BibTeX';
-    if (backdrop) backdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    if (backdrop) backdrop.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  // Bind to all publication BibTeX buttons
-  document.querySelectorAll('.open-bibtex-btn').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const pubId = btn.getAttribute('data-pub-id');
-      if (pubId) openModal(pubId);
+<dialog id="bibtex-dialog" aria-labelledby="modal-title" aria-describedby="modal-paper-name">
+  <div class="modal-header-row"><h2 id="modal-title">BibTeX citation</h2><button type="button" class="modal-close-btn" aria-label="Close citation dialog">×</button></div>
+  <p id="modal-paper-name"></p><pre id="modal-bibtex-code" tabindex="0" aria-label="BibTeX citation text"></pre>
+  <div class="modal-footer-row"><p id="copy-status" role="status" aria-live="polite"></p><button type="button" class="btn-academic btn-primary" id="modal-copy-btn">Copy citation</button></div>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#bibtex-dialog');
+  const title = document.getElementById('modal-paper-name');
+  const code = document.getElementById('modal-bibtex-code');
+  const status = document.getElementById('copy-status');
+  let trigger: HTMLButtonElement | null = null;
+  document.querySelectorAll<HTMLButtonElement>('.open-bibtex-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      if (!dialog || !title || !code || !status) return;
+      trigger = button; title.textContent = button.dataset.title ?? ''; code.textContent = button.dataset.bibtex ?? ''; status.textContent = '';
+      dialog.showModal(); document.body.classList.add('dialog-open');
     });
   });
-
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
-
-  if (backdrop) {
-    backdrop.addEventListener('click', (e) => {
-      if (e.target === backdrop) closeModal();
-    });
-  }
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && backdrop && backdrop.classList.contains('open')) {
-      closeModal();
-    }
+  dialog?.querySelector('.modal-close-btn')?.addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', event => {
+    const rect = dialog.getBoundingClientRect();
+    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
   });
-
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      if (currentBibtex) {
-        navigator.clipboard.writeText(currentBibtex).then(() => {
-          if (copyBtnLabel) copyBtnLabel.textContent = 'Copied to Clipboard!';
-          setTimeout(() => {
-            if (copyBtnLabel) copyBtnLabel.textContent = 'Copy BibTeX';
-          }, 2000);
-        });
-      }
-    });
-  }
+  dialog?.addEventListener('close', () => { document.body.classList.remove('dialog-open'); trigger?.focus(); });
+  document.getElementById('modal-copy-btn')?.addEventListener('click', async () => {
+    if (!code || !status) return;
+    try { await navigator.clipboard.writeText(code.textContent ?? ''); status.textContent = 'Citation copied.'; }
+    catch { const range = document.createRange(); range.selectNodeContents(code); const selection = window.getSelection(); selection?.removeAllRanges(); selection?.addRange(range); code.focus(); status.textContent = 'Copy unavailable. Citation selected; press Ctrl+C or ⌘C.'; }
+  });
 </script>
