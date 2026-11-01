@@ -471,3 +471,10 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
 .btn-academic,.nav-cv { gap:12px; }
 .author-portrait { display:block; width:160px; height:180px; object-fit:cover; object-position:50% 30%; margin-bottom:24px; border-radius:3px; }
 @media (max-width:800px) { .author-portrait { width:120px; height:140px; } }
+/* Give the portrait its own centered space above the research notes. */
+.portrait-block { display:flex; justify-content:center; padding:0 0 26px; margin-bottom:24px; border-bottom:1px solid var(--border-light); }
+.portrait-block .author-portrait { width:176px; height:200px; margin:0; object-position:50% 30%; }
+@media screen and (max-width:800px) {
+  .portrait-block { padding-bottom:22px; margin-bottom:22px; }
+  .portrait-block .author-portrait { width:144px; height:164px; }
+}
