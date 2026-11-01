@@ -469,3 +469,5 @@ main > section:not(.hero-section) { padding:65px 0; border-top:1px solid var(--b
 }
 .link-chevron { display:inline-block; width:14px; height:14px; flex:0 0 14px; vertical-align:middle; }
 .btn-academic,.nav-cv { gap:12px; }
+.author-portrait { display:block; width:160px; height:180px; object-fit:cover; object-position:50% 30%; margin-bottom:24px; border-radius:3px; }
+@media (max-width:800px) { .author-portrait { width:120px; height:140px; } }
