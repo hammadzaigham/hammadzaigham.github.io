@@ -34,7 +34,7 @@ export const RESEARCH_DATA = {
     degree: 'B.S. in Computer Science | Minor in Economic Data Analysis',
     expectedGraduation: 'Expected May 2027',
     gpa: '4.00 / 4.00',
-    email: 'hammad.a.zaigham@gmail.com',
+    email: 'hammad.ahmed@usm.edu',
     phone: '(601) 210-9855',
     github: 'https://github.com/hammadzaigham',
   },
@@ -170,7 +170,7 @@ export const RESEARCH_DATA = {
       advisor: 'Dr. Ahmed Sherif',
       period: 'Oct 2024 – Present',
       topics: [
-        { title: 'Vision–language navigation', bullets: ['Adapted training and evaluation code, ran R2R experiments and ablations, and compared published baselines for DyGRAV.', 'Analyzed results and developed manuscript figures, performance plots, and comparative tables.'] },
+        { title: 'Vision–language navigation', bullets: ['Adapted training and evaluation code, ran R2R experiments and ablations, and compared published baselines for DyGRAV.', 'Analyzed results and developed manuscript figures, performance plots, and comparative tables.', 'Revised the manuscript in response to peer-review feedback, addressing reviewer concerns, clarifying technical methodology, and improving the presentation of experimental findings.'] },
         { title: 'EV charging authentication & security', bullets: ['Co-designing an RSU-assisted protocol for dynamic wireless charging.', 'Co-developed a 4 × 4 taxonomy of 53 studies and examined security gaps in existing authentication approaches.'] }
       ]
     },
